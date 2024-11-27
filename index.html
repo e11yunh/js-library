@@ -7,7 +7,46 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <div id="container">
+        <div id="header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="60px" width="60px" fill="white" stroke="black" stroke-opacity="65%"><title>bookshelf</title><path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" /></svg>
+                <h1>My Library</h1>
+            </div>
+            <button class="log-btn">Log In</button>
+        </div>
+        <div id="content">
+            <div id="add-book-btn">Add Book</div>
+            <div id="cards-container">
+                <div class="card read">
+                    <div class="card-info">
+                        <h2>Alice in Wonderland</h2>
+                        <h3>Lewis Caroll</h3>
+                        <h4>November 1985</h4>
+                        <h4>288 Pages</h4>
+                    </div>
+                    <div id="btn-container">
+                        <button>Read</button>
+                        <button>Delete</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-info">
+                        <h2>Salvation of a Saint</h2>
+                        <h3>Keigo Higashino</h3>
+                        <h4>October 2008</h4>
+                        <h4>330 Pages</h4>
+                    </div>
+                    <div id="btn-container">
+                        <button>Read</button>
+                        <button>Delete</button>
+                    </div>
+                </div>
+                <div>Card 3</div>
+                <div>Card 4</div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
