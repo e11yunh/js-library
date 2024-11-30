@@ -23,13 +23,20 @@ function initialise_library() {
     generate_book_cards();
 };
 
+
 function add_book() {
     const add_container = document.querySelector("#form-container");
-    const container = document.querySelector("#container")
-    const submit_btn = document.querySelector("#submit-btn")
+    const container = document.querySelector("#container");
+    const submit_btn = document.querySelector("#submit-btn");
+    const cancel_btn = document.querySelector("#cancel-btn");
 
     add_container.classList.remove("invisible");
     container.classList.add("blur");
+
+    cancel_btn.addEventListener("click", function() {
+        add_container.classList.add("invisible");
+        container.classList.remove("blur");
+    })
 
     submit_btn.addEventListener("click", function() {
         add_container.classList.add("invisible");

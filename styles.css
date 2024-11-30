@@ -92,11 +92,22 @@ li {
   margin: 0;
   top: 20%;
   left: 30%;
-  width: 400px;
-  height: 500px;
+  width: clamp(100px, 400px, 800px);
+  height: clamp(125px, 500px, 1000px);
   background-color: bisque;
   padding: 50px 100px;
   border-radius: 20px;
+}
+
+#cancel-btn {
+  position: absolute;
+  top: max(10px, 2%);
+  right: max(10px, 2%);
+  cursor: pointer;
+}
+
+#cancel-btn:hover {
+  fill: red;
 }
 
 #form-container > form {
