@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="form-container" class="invisible">
+        <form id="add_form"action="">
+            <h2>Add New Book</h2>
+            <p>
+                <label for="book_title">Book Title:
+                    <input type="text" required>
+                </label>
+            </p>
+            <p>
+                <label for="book_author">Book Author:
+                    <input type="text" required>
+                </label>
+            </p>
+            <p>
+                <label for="book_pages">Book Pages:
+                    <input type="text" required>
+                </label>
+            </p>
+            <p>
+                <label for="book_status">Read Status:</label>
+                <select name="book_read_status" id="book_status">
+                    <option value="read">Read</option>
+                    <option value="unread">Not Read</option>
+                </select>
+            </p>
+            <input id="submit-btn" type="submit" value="submit">
+        </form>
+    </div>
+
     <div id="container">
         <div id="header">
             <div class="logo">
@@ -16,10 +45,12 @@
             <button class="log-btn">Log In</button>
         </div>
         <div id="content">
-            <div id="add-book-btn">Add Book</div>
+            <div id="add-book-container">
+                <button id="add-btn">Add New Books</button>
+            </div>
             <div id="cards-container">
                 <div class="card">
-                    <div class="card-info read well-shadow">
+                    <div class="card-info well-shadow">
                         <h2>Alice in Wonderland</h2>
                         <h3>Lewis Caroll</h3>
                         <h4>November 1985</h4>
@@ -30,7 +61,7 @@
                         <button>Delete</button>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card read">
                     <div class="card-info well-shadow">
                         <h2>Salvation of a Saint</h2>
                         <h3>Keigo Higashino</h3>

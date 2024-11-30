@@ -39,7 +39,6 @@ li {
     list-style-type: none;
 }
 
-
 #container {
     display: grid;
     height: 100%;
@@ -83,23 +82,65 @@ li {
     border-style: none;
 }
 
+#form-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  margin: 0;
+  top: 20%;
+  left: 30%;
+  width: 400px;
+  height: 500px;
+  background-color: bisque;
+  padding: 50px 100px;
+  border-radius: 20px;
+}
+
+#form-container > form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 #content {
     grid-area: "content";
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     padding: 0 25px;
 }
 
-#add-book-btn {
+#add-book-container {
   display: flex;
   align-self: center;
+  padding: 20px;
+}
+
+button {
+  padding: 10px;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px hsla(348, 60%, 20%, 0.35);
+  cursor: pointer;
+}
+
+#add-btn {
+  color: #fb6f84;
+  background-color: azure;
+}
+
+#add-btn:hover {
+  background-color: aquamarine;
+  color: black;
 }
 
 
 #cards-container {
   display: grid;
-  gap: 100px;
+  gap: 80px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
 }
@@ -125,12 +166,22 @@ li {
   background-color: hsl(185, 96%, 90%);
   border-radius: 5px;
   padding: 10px;
+  border: 1px solid rgb(126, 39, 50);
+  display: flex;
+  flex-direction: column;
 }
 
-.read {
+.card-info > h2 {
+  color: rgb(199, 222, 243);
+}
+
+.card.read {
+  box-shadow: inset 0 9px 0 hsl(81, 88%, 80%), 2px 3px 2px hsla(0, 0%, 0%, 0.45);
+}
+
+.read > .card-info {
   background-color: hsl(81, 88%, 80%);
 }
-
 
 #btn-container {
   margin-top: 20px;
@@ -141,17 +192,22 @@ li {
 }
 
 #btn-container button {
-  background-color: #db2777;
-  padding: 10px;
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px hsla(348, 60%, 20%, 0.35);
+  background-color: hsl(175, 55%, 75%);
 }
 
 #btn-container button:active {
-  box-shadow: 0 1px 2px hsla(348, 0%, 0%, 0.35);
+  box-shadow: 0 1.5px 3px hsla(348, 0%, 0%, 0.35);
 }
 
 .well-shadow {
-  box-shadow: 0 3px 0 hsla(348, 60%, 20%, 0.4), inset 0 8px 10px hsla(0, 0%, 0%, 0.25);
+  box-shadow: 0 4px 0 hsla(348, 60%, 20%, 0.4), inset 0 50px 60px hsla(0, 51%, 35%, 0.5), inset 0 90px 100px rgba(0, 0, 0, 0.201);
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.blur {
+  filter: blur(4px);
+  pointer-events: none;
 }
