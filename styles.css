@@ -90,12 +90,12 @@ li {
   align-items: center;
   z-index: 1;
   margin: 0;
-  top: 20%;
-  left: 30%;
+  top: 25%;
+  left: 40%;
   width: clamp(100px, 400px, 800px);
   height: clamp(125px, 500px, 1000px);
   background-color: bisque;
-  padding: 50px 100px;
+  padding: 30px 100px;
   border-radius: 20px;
 }
 
@@ -121,7 +121,7 @@ li {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 0 25px;
+    padding: 50px 100px;
 }
 
 #add-book-container {
@@ -208,6 +208,10 @@ button {
 
 #btn-container button:active {
   box-shadow: 0 1.5px 3px hsla(348, 0%, 0%, 0.35);
+}
+
+#btn-container button:hover {
+  filter:saturate(1.5);
 }
 
 .well-shadow {

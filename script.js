@@ -1,9 +1,11 @@
 const myLibrary = [];
+const added_books = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, publish, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.publish = publish;
     this.read = read;
 }
 
@@ -11,24 +13,12 @@ function addBookToLibrary(selected_book) {
     myLibrary.push(selected_book);
 }
 
-
-book1 = new Book("James Hurt", "Leslie ing", 172, true)
-book2 = new Book("Ironic Star", "Love is Terrible", 999, false)
-
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-
-
-function initialise_library() {
-    generate_book_cards();
-};
-
-
 function add_book() {
     const add_container = document.querySelector("#form-container");
     const container = document.querySelector("#container");
     const submit_btn = document.querySelector("#submit-btn");
     const cancel_btn = document.querySelector("#cancel-btn");
+    const form = document.querySelector("#add_form");
 
     add_container.classList.remove("invisible");
     container.classList.add("blur");
@@ -36,6 +26,7 @@ function add_book() {
     cancel_btn.addEventListener("click", function() {
         add_container.classList.add("invisible");
         container.classList.remove("blur");
+        form.reset();
     })
 
     submit_btn.addEventListener("click", function() {
@@ -43,6 +34,56 @@ function add_book() {
         container.classList.remove("blur");
     })
 }
+
+function submit_book() {
+    const form = document.querySelector("#add_form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = document.querySelector("#book_title").value;
+        const author = document.querySelector("#book_author").value;
+        const pages = document.querySelector("#book_pages").value;
+        const publish = document.querySelector("#publish_date").value;
+        const read_status = document.querySelector("#book_status").value;
+
+        const newBook = new Book(title, author, pages, publish, read_status);
+        addBookToLibrary(newBook);
+        console.log(myLibrary);
+
+        generate_book(myLibrary);
+        generate_book_cards();
+
+        form.reset();
+    })
+};
+
+function generate_book(library) {
+    const cards_container = document.querySelector("#cards-container");
+
+    for (const book of library) {
+        if (!added_books.includes(book)) {
+            const bookCardHTML = `
+            <div class="card ${book.read === 'read' ? 'read' : ''}">
+                <div class="card-info well-shadow">
+                    <h2>${book.title}</h2>
+                    <h3>${book.author}</h3>
+                    <h4>${book.publish}</h4>
+                    <h4>${book.pages} Pages</h4>
+                </div>
+                <div id="btn-container">
+                    <button>Read</button>
+                    <button>Delete</button>
+                </div>
+            </div>
+        `;
+        added_books.push(book);
+        cards_container.insertAdjacentHTML("beforeend", bookCardHTML);
+        };
+    };
+
+};
+
 
 function generate_book_cards() {
     const all_books = document.querySelectorAll(".card");
@@ -52,7 +93,7 @@ function generate_book_cards() {
     all_btn.forEach(container => {
     const del_btn = container.children[1];
 
-    del_btn.style.backgroundColor = "hsl(353, 50%, 80%)";
+    del_btn.style.backgroundColor = "hsl(353, 80%, 80%)";
     })
 
     add_btn.addEventListener("click", add_book);
@@ -94,6 +135,11 @@ function check_read_status(target) {
         target.textContent = "Read";
         target.style.backgroundColor = read_color; 
     }
+};
+
+function initialise_library() {
+    generate_book_cards();
+    submit_book();
 };
 
 initialise_library();
